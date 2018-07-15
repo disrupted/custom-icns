@@ -22,6 +22,7 @@ red='\033[0;31m'
 reset='\033[0m'
 icns_changed=0
 
+set -x
 if [ "$EUID" -ne 0 ]; then
     echo "Simulating output, to change the icons please run as root"
 fi
@@ -44,6 +45,7 @@ for file in $dir/*$ext; do
         fi
     fi
 done
+set +x
 
 if [ $icns_changed -gt 0 ]; then
     echo $icns_changed "app icons changed. rebuilding icon cache..."
