@@ -50,7 +50,7 @@ set +x
 if [ $icns_changed -gt 0 ]; then
     echo $icns_changed "app icons changed. rebuilding icon cache..."
     sudo rm -rfv /Library/Caches/com.apple.iconservices.store
-    sudo find /private/var/folders/ \( -name com.apple.dock.iconcache -or -name com.apple.iconservices \) -exec rm -rfv {} \; ;
+    sudo find /private/var/folders \( -name com.apple.dock.iconcache -or -name com.apple.iconservices \) -exec rm -rfv {} \; ;
     sleep 3
     sudo killall Dock && sudo killall Finder
 else
